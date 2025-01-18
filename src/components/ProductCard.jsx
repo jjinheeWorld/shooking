@@ -1,10 +1,17 @@
+import { ProductDispatchContext } from "../App";
 import { getProductImage } from "../util/get-product-image";
 import Button from "./Button";
+import { useContext } from "react";
 
 const ProductCard = ({ id, name, content, price, isInCart }) => {
+  const { onAddToCart } = useContext(ProductDispatchContext);
   const formatPrice = (price) => {
     const formattedPrice = price.toLocaleString("ko-KR");
     return `${formattedPrice}원`;
+  };
+
+  const onClickAddToCart = () => {
+    onAddToCart(id);
   };
 
   return (
@@ -14,7 +21,11 @@ const ProductCard = ({ id, name, content, price, isInCart }) => {
         <div className="text-base font-medium">{name}</div>
         <div className="text-[13px] font-normal text-[#7c7a7a]">{content}</div>
         <div className="text-sm font-medium">{formatPrice(price)}</div>
-        <Button text={"담기"} />
+        <Button
+          text={isInCart ? "담김!" : "담기"}
+          onClick={onClickAddToCart}
+          isDisabled={isInCart}
+        />
       </div>
     </div>
   );

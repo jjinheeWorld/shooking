@@ -1,6 +1,10 @@
-const Button = ({ text }) => {
+const Button = ({ text, onClick, isDisabled = false }) => {
   return (
-    <button className="self-start pl-[12px] pt-[5px] pr-[12px] pb-[5px] text-[10px] font-bold text-white bg-black rounded-[10px]">
+    <button
+      className={`self-start btn ${isDisabled ? "btn-disabled" : ""}`}
+      disabled={isDisabled}
+      onClick={onClick}
+    >
       {text}
     </button>
   );

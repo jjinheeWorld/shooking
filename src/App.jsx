@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { useState, createContext } from "react";
+import { createContext, useReducer } from "react";
 
 const mockData = [
   {
@@ -46,15 +46,36 @@ const mockData = [
   },
 ];
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "ADD_TO_CART":
+      return state.map((item) =>
+        item.id === action.targetId ? { ...item, isInCart: true } : item
+      );
+    default:
+      return state;
+  }
+}
+
 export const ProductStateContext = createContext();
+export const ProductDispatchContext = createContext();
 
 function App() {
-  const [products, setProducts] = useState(mockData);
+  const [products, dispatch] = useReducer(reducer, mockData);
+
+  const onAddToCart = (id) => {
+    dispatch({
+      type: "ADD_TO_CART",
+      targetId: id,
+    });
+  };
 
   return (
     <>
       <ProductStateContext.Provider value={products}>
-        <Home />
+        <ProductDispatchContext.Provider value={{ onAddToCart }}>
+          <Home />
+        </ProductDispatchContext.Provider>
       </ProductStateContext.Provider>
     </>
   );
