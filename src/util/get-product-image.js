@@ -2,7 +2,7 @@ import Product1 from "../assets/product1.png";
 import Product2 from "../assets/product2.png";
 import Product3 from "../assets/product3.png";
 import Product4 from "../assets/product4.png";
-import Product5 from "../assets/product5.png";
+import Product5 from "../assets/product5.jpeg";
 import Product6 from "../assets/product6.png";
 
 export function getProductImage(productId) {
