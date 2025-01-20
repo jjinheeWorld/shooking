@@ -630,12 +630,12 @@ body {
   display: flex;
 }
 
-.aspect-\[184\/247\] {
-  aspect-ratio: 184/247;
-}
-
 .h-6 {
   height: 1.5rem;
+}
+
+.h-\[115px\] {
+  height: 115px;
 }
 
 .h-\[19px\] {
@@ -756,8 +756,8 @@ body {
   padding-right: 23px;
 }
 
-.pb-\[20zx\] {
-  padding-bottom: 20zx;
+.pb-\[20px\] {
+  padding-bottom: 20px;
 }
 
 .pb-\[28px\] {
@@ -862,4 +862,16 @@ body {
   src: url("/fonts/Montserrat-ExtraBold.ttf");
 
   font-weight: 800;
+}
+
+@media (min-width: 768px) {
+  .md\:h-\[165px\] {
+    height: 165px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:h-\[215px\] {
+    height: 215px;
+  }
 }
