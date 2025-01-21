@@ -7,7 +7,7 @@ const ProductList = ({ data }) => {
       <div className="text-base font-normal mb-[33px]">
         현재 {data.length}개의 상품이 있습니다.
       </div>
-      <div className="flex flex-wrap gap-4 justify-start">
+      <div className="flex flex-wrap gap-4 justify-between">
         {data.map((item) => (
           <ProductCard key={item.id} {...item} />
         ))}

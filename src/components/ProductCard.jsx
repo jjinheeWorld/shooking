@@ -13,7 +13,7 @@ const ProductCard = ({ id, name, content, price, isInCart }) => {
   const onClickAddToCart = () => {
     onAddToCart(id);
   };
-  // w-full h-[115px]
+
   return (
     <div className="w-[calc((100%-16px)/2)] overflow-hidden rounded-[15px] border border-solid border-[#f2f2f2]">
       <img
