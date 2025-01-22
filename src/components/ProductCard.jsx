@@ -24,11 +24,15 @@ const ProductCard = ({ id, name, content, price, isInCart }) => {
         <div className="text-base font-medium">{name}</div>
         <div className="text-[13px] font-normal text-[#7c7a7a]">{content}</div>
         <div className="text-sm font-medium">{formatPrice(price)}</div>
-        <Button
-          text={isInCart ? "담김!" : "담기"}
-          onClick={onClickAddToCart}
-          isDisabled={isInCart}
-        />
+        <div className="flex gap-[9px]">
+          <Button
+            text={isInCart ? "담김!" : "담기"}
+            onClick={onClickAddToCart}
+            isDisabled={isInCart}
+            color={isInCart && "gray"}
+          />
+          <Button text={"구매"} color={"yellow"} />
+        </div>
       </div>
     </div>
   );
