@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Payment from "./pages/Payment";
+import Cards from "./pages/Cards";
 
 const mockData = [
   {
@@ -78,7 +78,7 @@ function App() {
         <ProductDispatchContext.Provider value={{ onAddToCart }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/payment" element={<Payment />} />
+            <Route path="/cards" element={<Cards />} />
           </Routes>
         </ProductDispatchContext.Provider>
       </ProductStateContext.Provider>

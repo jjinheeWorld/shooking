@@ -9,7 +9,7 @@ const ProductCard = ({ id, name, content, price, isInCart }) => {
   const nav = useNavigate();
 
   const onClickButton = () => {
-    nav("/payment");
+    nav("/cards");
   };
   const formatPrice = (price) => {
     const formattedPrice = price.toLocaleString("ko-KR");
