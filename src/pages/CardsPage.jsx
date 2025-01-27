@@ -1,7 +1,7 @@
 import SubHeader from "../components/SubHeader";
 import AddCardButton from "../components/AddCardButton";
 
-const Cards = () => {
+const CardsPage = () => {
   return (
     <div>
       <SubHeader title={"보유카드"} />
@@ -15,4 +15,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default CardsPage;

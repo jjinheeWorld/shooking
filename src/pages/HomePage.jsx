@@ -3,7 +3,7 @@ import ProductList from "../components/ProductList";
 import { useContext } from "react";
 import { ProductStateContext } from "../App";
 
-const Home = () => {
+const HomePage = () => {
   const products = useContext(ProductStateContext);
 
   return (
@@ -14,4 +14,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
