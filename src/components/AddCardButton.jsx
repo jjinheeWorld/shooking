@@ -6,7 +6,7 @@ const AddCardButton = () => {
   return (
     <button
       className="w-[208px] h-[123px] rounded-[5px] bg-[#E5E5E5] text-3xl text-[#575757]"
-      onClick={() => nav("/cards/add")}
+      onClick={() => nav("/cards/register")}
     >
       +
     </button>

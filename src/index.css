@@ -44,4 +44,16 @@
   .header-right {
     @apply absolute top-1/2 transform -translate-y-1/2 right-[30px];
   }
+
+  .card-text {
+    @apply text-white text-xs font-medium;
+  }
+
+  .register-label {
+    @apply block pb-[7px] text-xs font-medium text-[#525252];
+  }
+
+  .register-input {
+    @apply block w-full px-3 py-2 mb-[19px] font-medium text-lg bg-[#ECEBF1] rounded-[7px] placeholder:text-[#737373];
+  }
 }

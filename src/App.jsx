@@ -2,6 +2,7 @@ import { createContext, useReducer } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CardsPage from "./pages/CardsPage";
+import CardRegisterPage from "./pages/CardRegisterPage";
 
 const mockData = [
   {
@@ -79,6 +80,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/cards" element={<CardsPage />} />
+            <Route path="/cards/register" element={<CardRegisterPage />} />
           </Routes>
         </ProductDispatchContext.Provider>
       </ProductStateContext.Provider>
