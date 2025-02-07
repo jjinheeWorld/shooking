@@ -632,6 +632,15 @@ body {
   color: rgb(115 115 115 / var(--tw-text-opacity, 1));
 }
 
+.register-error {
+  margin-top: 0.5rem;
+  margin-bottom: 19px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+}
+
 .absolute {
   position: absolute;
 }
