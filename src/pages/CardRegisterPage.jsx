@@ -6,8 +6,10 @@ const CardRegisterPage = () => {
   return (
     <div>
       <SubHeader showBackButton={true} title={"카드 추가"} />
-      <PaymentCard />
-      <CardRegisterForm />
+      <div className="mt-[69px]">
+        <PaymentCard />
+        <CardRegisterForm />
+      </div>
     </div>
   );
 };
