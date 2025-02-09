@@ -2,9 +2,15 @@ import { ProductDispatchContext } from "../App";
 import { getProductImage } from "../util/get-product-image";
 import Button from "./Button";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ id, name, content, price, isInCart }) => {
   const { onAddToCart } = useContext(ProductDispatchContext);
+  const nav = useNavigate();
+
+  const onClickButton = () => {
+    nav("/cards");
+  };
   const formatPrice = (price) => {
     const formattedPrice = price.toLocaleString("ko-KR");
     return `${formattedPrice}원`;
@@ -31,7 +37,7 @@ const ProductCard = ({ id, name, content, price, isInCart }) => {
             isDisabled={isInCart}
             color={isInCart && "gray"}
           />
-          <Button text={"구매"} color={"yellow"} />
+          <Button text={"구매"} color={"yellow"} onClick={onClickButton} />
         </div>
       </div>
     </div>

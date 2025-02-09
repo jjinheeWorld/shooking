@@ -1,17 +1,17 @@
-import Header from "../components/Header";
+import MainHeader from "../components/MainHeader";
 import ProductList from "../components/ProductList";
 import { useContext } from "react";
 import { ProductStateContext } from "../App";
 
-const Home = () => {
+const HomePage = () => {
   const products = useContext(ProductStateContext);
 
   return (
     <div>
-      <Header />
+      <MainHeader />
       <ProductList data={products} />
     </div>
   );
 };
 
-export default Home;
+export default HomePage;
