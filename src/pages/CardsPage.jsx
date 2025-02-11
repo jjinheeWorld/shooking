@@ -19,15 +19,14 @@ const CardsPage = () => {
       <SubHeader title={"보유카드"} />
       <div className="flex flex-col items-center">
         <CardList data={mockData} />
-        {!mockData.length ? (
+        {mockData.length === 0 && (
           <div className="pb-[9px] text-[#575757] text-center font-bold text-sm">
             새로운 카드를 등록해주세요.
           </div>
-        ) : (
-          <div className="pt-[40px]">
-            <AddCardButton />
-          </div>
         )}
+        <div className={mockData.length === 0 ? "" : "pt-[40px]"}>
+          <AddCardButton />
+        </div>
       </div>
     </div>
   );
