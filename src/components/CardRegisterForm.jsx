@@ -1,6 +1,11 @@
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { CardDispatchContext } from "../App";
 
 const CardRegisterForm = () => {
+  const nav = useNavigate();
+  const { onAddCard } = useContext(CardDispatchContext);
   const {
     register,
     handleSubmit,
@@ -56,8 +61,11 @@ const CardRegisterForm = () => {
 
   return (
     <form
-      className="px-7 pt-[25px] pb-[34px]"
-      onSubmit={handleSubmit(async (data) => alert(JSON.stringify(data)))}
+      className="max-w-xl w-full mx-auto px-7 pt-[25px] pb-[34px]"
+      onSubmit={handleSubmit(async (data) => {
+        onAddCard(data);
+        nav(-1);
+      })}
     >
       <label htmlFor="cardNumber" className="register-label">
         카드번호

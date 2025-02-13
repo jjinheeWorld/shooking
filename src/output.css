@@ -697,6 +697,11 @@ body {
   top: 47px;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-0 {
   margin-bottom: 0px;
 }
@@ -757,6 +762,10 @@ body {
   height: 27px;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-1\/4 {
   width: 25%;
 }
@@ -799,6 +808,18 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .-translate-x-1\/2 {
@@ -983,6 +1004,16 @@ body {
   padding-bottom: 0.75rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .pb-\[20px\] {
   padding-bottom: 20px;
 }
@@ -1021,6 +1052,18 @@ body {
 
 .pt-\[40px\] {
   padding-top: 40px;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
+.pb-16 {
+  padding-bottom: 4rem;
 }
 
 .text-center {
