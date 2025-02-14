@@ -3,61 +3,21 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CardsPage from "./pages/CardsPage";
 import CardRegisterPage from "./pages/CardRegisterPage";
+import { products } from "./constants/products";
 
-const mockData = [
-  {
-    id: 0,
-    name: " 브랜드 A",
-    content: "편안하고 착용감이 좋은 신발",
-    price: 35000,
-    isInCart: false,
-  },
-  {
-    id: 1,
-    name: " 브랜드 A",
-    content: "힙한 컬러가 매력적인 신발",
-    price: 25000,
-    isInCart: false,
-  },
-  {
-    id: 2,
-    name: " 브랜드 B",
-    content: "편안하고 착용감이 좋은 신발",
-    price: 35000,
-    isInCart: false,
-  },
-  {
-    id: 3,
-    name: " 브랜드 B",
-    content: "힙한 컬러가 매력적인 신발",
-    price: 35000,
-    isInCart: false,
-  },
-  {
-    id: 4,
-    name: " 브랜드 C",
-    content: "편안하고 착용감이 좋은 신발",
-    price: 35000,
-    isInCart: false,
-  },
-  {
-    id: 5,
-    name: " 브랜드 D",
-    content: "힙한 컬러가 매력적인 신발",
-    price: 35000,
-    isInCart: false,
-  },
-];
+function cartReducer(state, action) {
+  let nextState;
 
-function ProductReducer(state, action) {
   switch (action.type) {
+    case "INIT":
+      return action.data;
     case "ADD_TO_CART":
-      return state.map((item) =>
-        item.id === action.targetId ? { ...item, isInCart: true } : item
-      );
+      nextState = [action.data, ...state];
+      break;
     default:
       return state;
   }
+  return nextState;
 }
 
 function cardReducer(state, action) {
@@ -77,14 +37,14 @@ function cardReducer(state, action) {
   return nextState;
 }
 
-export const ProductStateContext = createContext();
-export const ProductDispatchContext = createContext();
+export const CartStateContext = createContext();
+export const CartDispatchContext = createContext();
 export const CardStateContext = createContext();
 export const CardDispatchContext = createContext();
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [products, dispatchProducts] = useReducer(ProductReducer, mockData);
+  const [cart, dispatchCart] = useReducer(cartReducer, []);
   const [cards, dispatchCards] = useReducer(cardReducer, []);
   const cardIdRef = useRef(0);
 
@@ -115,9 +75,11 @@ function App() {
   }, []);
 
   const onAddToCart = (id) => {
-    dispatchProducts({
+    const product = products.find((item) => item.id === id);
+
+    dispatchCart({
       type: "ADD_TO_CART",
-      targetId: id,
+      data: product,
     });
   };
 
@@ -137,8 +99,8 @@ function App() {
 
   return (
     <>
-      <ProductStateContext.Provider value={products}>
-        <ProductDispatchContext.Provider value={{ onAddToCart }}>
+      <CartStateContext.Provider value={cart}>
+        <CartDispatchContext.Provider value={{ onAddToCart }}>
           <CardStateContext.Provider value={cards}>
             <CardDispatchContext.Provider value={{ onAddCard }}>
               <Routes>
@@ -148,8 +110,8 @@ function App() {
               </Routes>
             </CardDispatchContext.Provider>
           </CardStateContext.Provider>
-        </ProductDispatchContext.Provider>
-      </ProductStateContext.Provider>
+        </CartDispatchContext.Provider>
+      </CartStateContext.Provider>
     </>
   );
 }

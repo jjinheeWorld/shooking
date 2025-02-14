@@ -1,10 +1,10 @@
 import cartImage from "../assets/cart.png";
+import { CartStateContext } from "../App";
 import { useContext } from "react";
-import { ProductStateContext } from "../App";
 
 const MainHeader = () => {
-  const products = useContext(ProductStateContext);
-  const cartCount = products.filter((product) => product.isInCart).length;
+  const cart = useContext(CartStateContext);
+  const cartCount = cart.length;
 
   return (
     <header className="header bg-black">
@@ -12,7 +12,7 @@ const MainHeader = () => {
         <img className="w-5 h-6 bg-cover" src={cartImage} />
         {cartCount > 0 && (
           <div className="absolute top-[12px] left-[12px] w-[19px] h-[19px] rounded-full bg-white text-black text-[10px] font-bold flex items-center justify-center">
-            {cartCount}
+            {cart.length}
           </div>
         )}
       </button>
