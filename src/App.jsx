@@ -13,10 +13,12 @@ function cartReducer(state, action) {
       return action.data;
     case "ADD_TO_CART":
       nextState = [action.data, ...state];
+
       break;
     default:
       return state;
   }
+  localStorage.setItem("cart", JSON.stringify(nextState));
   return nextState;
 }
 
@@ -46,7 +48,34 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [cart, dispatchCart] = useReducer(cartReducer, []);
   const [cards, dispatchCards] = useReducer(cardReducer, []);
+  const cartIdRef = useRef(0);
   const cardIdRef = useRef(0);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("cart");
+
+    if (!storedData) {
+      setIsLoading(false);
+      return;
+    }
+
+    const parsedData = JSON.parse(storedData);
+
+    let maxId = 0;
+    parsedData.forEach((item) => {
+      if (Number(item.id) > maxId) {
+        maxId = Number(item.id);
+      }
+    });
+    cartIdRef.current = maxId + 1;
+
+    dispatchCart({
+      type: "INIT",
+      data: parsedData,
+    });
+
+    setIsLoading(false);
+  }, []);
 
   useEffect(() => {
     const storedData = localStorage.getItem("card");
@@ -77,10 +106,15 @@ function App() {
   const onAddToCart = (id) => {
     const product = products.find((item) => item.id === id);
 
-    dispatchCart({
-      type: "ADD_TO_CART",
-      data: product,
-    });
+    if (product) {
+      dispatchCart({
+        type: "ADD_TO_CART",
+        data: {
+          id: cartIdRef.current++,
+          ...product,
+        },
+      });
+    }
   };
 
   const onAddCard = (card) => {
