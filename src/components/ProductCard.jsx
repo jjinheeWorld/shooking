@@ -1,12 +1,16 @@
-import { ProductDispatchContext } from "../App";
 import { getProductImage } from "../util/get-product-image";
 import Button from "./Button";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CartStateContext } from "../App";
+import { CartDispatchContext } from "../App";
 
-const ProductCard = ({ id, name, content, price, isInCart }) => {
-  const { onAddToCart } = useContext(ProductDispatchContext);
+const ProductCard = ({ id, name, content, price }) => {
+  const cart = useContext(CartStateContext);
+  const { onAddToCart } = useContext(CartDispatchContext);
   const nav = useNavigate();
+
+  const isInCart = cart.find((item) => item.id === id);
 
   const onClickButton = () => {
     nav("/cards");
