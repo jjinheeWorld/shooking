@@ -1,6 +1,6 @@
 const CartSummary = () => {
   return (
-    <div className="px-[23px]">
+    <div>
       <div className="py-[21px] border-b-[1px] border-[#EBEBEB]">
         <div className="flex justify-between items-center pb-[7px]">
           <div className="text-base font-bold">상품금액</div>

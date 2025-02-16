@@ -34,7 +34,19 @@
 
 @layer components {
   .btn {
-    @apply px-[12px] py-[5px] text-[10px] font-bold text-white bg-black rounded-[10px];
+    @apply w-full py-[12px] text-[14px] font-bold text-white bg-black rounded-[20px];
+  }
+
+  .btn-xs {
+    @apply w-auto px-[12px] py-[5px] text-[10px] rounded-[10px];
+  }
+
+  .btn-sm {
+    @apply py-[8px] text-[10px] rounded-[20px];
+  }
+
+  .btn-lg {
+    @apply py-[15px] rounded-[30px] text-[20px];
   }
 
   .header {

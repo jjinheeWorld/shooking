@@ -37,11 +37,17 @@ const ProductCard = ({ id, name, content, price }) => {
         <div className="flex gap-[9px]">
           <Button
             text={isInCart ? "담김!" : "담기"}
+            size={"extraSmall"}
             onClick={onClickAddToCart}
             isDisabled={isInCart}
             color={isInCart && "gray"}
           />
-          <Button text={"구매"} color={"yellow"} onClick={onClickButton} />
+          <Button
+            text={"구매"}
+            size={"extraSmall"}
+            color={"yellow"}
+            onClick={onClickButton}
+          />
         </div>
       </div>
     </div>
