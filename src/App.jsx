@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import CardsPage from "./pages/CardsPage";
 import CardRegisterPage from "./pages/CardRegisterPage";
 import { products } from "./constants/products";
+import CartPage from "./pages/CartPage";
 
 function cartReducer(state, action) {
   let nextState;
@@ -139,6 +140,7 @@ function App() {
             <CardDispatchContext.Provider value={{ onAddCard }}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/cart" element={<CartPage />} />
                 <Route path="/cards" element={<CardsPage />} />
                 <Route path="/cards/register" element={<CardRegisterPage />} />
               </Routes>

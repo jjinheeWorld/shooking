@@ -41,6 +41,10 @@
     @apply fixed inset-x-0 top-0 h-[69px];
   }
 
+  .header-left {
+    @apply absolute top-1/2 transform -translate-y-1/2 left-[30px];
+  }
+
   .header-right {
     @apply absolute top-1/2 transform -translate-y-1/2 right-[30px];
   }
