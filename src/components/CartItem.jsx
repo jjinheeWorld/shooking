@@ -2,7 +2,7 @@ import { getProductImage } from "../util/get-product-image";
 import minusImage from "../assets/minus.png";
 import plusImage from "../assets/plus.png";
 
-const CartItem = ({ id, name, price }) => {
+const CartItem = ({ id, name, price, quantity }) => {
   const formatPrice = (price) => {
     const formattedPrice = price.toLocaleString("ko-KR");
     return `${formattedPrice}원`;
@@ -21,7 +21,7 @@ const CartItem = ({ id, name, price }) => {
           <button className="bg-[#E6E6E6] p-[6px] rounded-[10px]">
             <img className="w-3" src={minusImage} />
           </button>
-          <div>개수</div>
+          <div>{quantity}</div>
           <button className="bg-[#E6E6E6] p-[6px] rounded-[10px]">
             <img className="w-3" src={plusImage} />
           </button>
