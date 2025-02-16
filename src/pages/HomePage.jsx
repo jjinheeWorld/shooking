@@ -4,7 +4,7 @@ import ProductList from "../components/ProductList";
 const HomePage = () => {
   return (
     <div>
-      <MainHeader />
+      <MainHeader showBackBtn={false} showCartIcon={true} />
       <ProductList />
     </div>
   );

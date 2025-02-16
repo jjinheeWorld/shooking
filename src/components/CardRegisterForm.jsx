@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CardDispatchContext } from "../App";
+import Button from "./Button";
 
 const CardRegisterForm = () => {
   const nav = useNavigate();
@@ -213,14 +214,9 @@ const CardRegisterForm = () => {
           {errors.cardPassword1?.message || errors.cardPassword2?.message}
         </div>
       )}
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="btn w-full text-[14px] py-3 rounded-[20px] mt-[14px]"
-      >
-        작성 완료
-      </button>
+      <div className="mt-[14px]">
+        <Button text={"작성 완료"} isDisabled={isSubmitting} />
+      </div>
     </form>
   );
 };
