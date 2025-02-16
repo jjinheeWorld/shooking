@@ -749,6 +749,10 @@ body {
   margin-bottom: 19px;
 }
 
+.mb-\[28px\] {
+  margin-bottom: 28px;
+}
+
 .mb-\[33px\] {
   margin-bottom: 33px;
 }
@@ -763,10 +767,6 @@ body {
 
 .mt-\[69px\] {
   margin-top: 69px;
-}
-
-.mb-\[28px\] {
-  margin-bottom: 28px;
 }
 
 .flex {
