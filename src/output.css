@@ -1047,6 +1047,11 @@ body {
   padding-bottom: 1.25rem;
 }
 
+.py-\[21px\] {
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -1071,6 +1076,14 @@ body {
   padding-bottom: 34px;
 }
 
+.pb-\[43px\] {
+  padding-bottom: 43px;
+}
+
+.pb-\[7px\] {
+  padding-bottom: 7px;
+}
+
 .pb-\[9px\] {
   padding-bottom: 9px;
 }
@@ -1089,6 +1102,10 @@ body {
 
 .pt-\[17px\] {
   padding-top: 17px;
+}
+
+.pt-\[21px\] {
+  padding-top: 21px;
 }
 
 .pt-\[25px\] {
