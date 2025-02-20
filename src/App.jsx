@@ -14,7 +14,20 @@ function cartReducer(state, action) {
       return action.data;
     case "ADD_TO_CART":
       nextState = [action.data, ...state];
-
+      break;
+    case "DECREASE":
+      nextState = state.map((item) =>
+        item.id === action.targetId
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+      break;
+    case "INCREASE":
+      nextState = state.map((item) =>
+        item.id === action.targetId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
       break;
     default:
       return state;
@@ -118,6 +131,20 @@ function App() {
     }
   };
 
+  const onIncreaseCartItem = (id) => {
+    dispatchCart({
+      type: "INCREASE",
+      targetId: id,
+    });
+  };
+
+  const onDecreaseCartItem = (id) => {
+    dispatchCart({
+      type: "DECREASE",
+      targetId: id,
+    });
+  };
+
   const onAddCard = (card) => {
     dispatchCards({
       type: "ADD_CARD",
@@ -135,7 +162,9 @@ function App() {
   return (
     <>
       <CartStateContext.Provider value={cart}>
-        <CartDispatchContext.Provider value={{ onAddToCart }}>
+        <CartDispatchContext.Provider
+          value={{ onAddToCart, onIncreaseCartItem, onDecreaseCartItem }}
+        >
           <CardStateContext.Provider value={cards}>
             <CardDispatchContext.Provider value={{ onAddCard }}>
               <Routes>

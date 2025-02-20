@@ -1,9 +1,10 @@
-import { getProductImage } from "../util/get-product-image";
+import { getProductImage } from "../utils/get-product-image";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartStateContext } from "../App";
 import { CartDispatchContext } from "../App";
+import { formatPrice } from "../utils/format";
 
 const ProductCard = ({ id, name, content, price }) => {
   const cart = useContext(CartStateContext);
@@ -14,10 +15,6 @@ const ProductCard = ({ id, name, content, price }) => {
 
   const onClickButton = () => {
     nav("/cards");
-  };
-  const formatPrice = (price) => {
-    const formattedPrice = price.toLocaleString("ko-KR");
-    return `${formattedPrice}원`;
   };
 
   const onClickAddToCart = () => {
